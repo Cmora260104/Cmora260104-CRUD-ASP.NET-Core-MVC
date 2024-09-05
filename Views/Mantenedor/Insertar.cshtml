@@ -1,0 +1,32 @@
+﻿@model DatosModels
+@{
+    ViewData["Title"] = "Insertar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Insertar Datos</h5>
+    <div class="card-body">
+        <form asp-action="Insertar" asp-controller="Mantenedor" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Salario</label>
+                <input asp-for="Salario" type="text" class="form-control">
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha de Nacimiento</label>
+                <input asp-for="FechaNacimiento" type="text" class="form-control">
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
+

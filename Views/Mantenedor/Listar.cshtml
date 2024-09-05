@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Listar Contacto</h5>
+    <div class="card-body">
+        <a asp-action="Insertar" asp-controller="Mantenedor" class="btn btn-warning"><i class="bi bi-plus-circle"></i> Crear Nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Salario</td>
+                        <td>@item.FechaNacimiento</td>
+                        <td>
+                            <a asp-action="Actualizar" asp-controller="Mantenedor" class="btn btn-primary btn-sm" asp-route-Id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                            <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-Id="@item.Id"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
